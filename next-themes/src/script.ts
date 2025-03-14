@@ -11,7 +11,7 @@ export const script = (
   const el = document.documentElement
   const systemThemes = ['light', 'dark']
 
-  function updateDOM(theme: string) {
+  const updateDOM = (theme: string) => {
     const attributes = Array.isArray(attribute) ? attribute : [attribute]
 
     attributes.forEach(attr => {
@@ -28,13 +28,13 @@ export const script = (
     setColorScheme(theme)
   }
 
-  function setColorScheme(theme: string) {
+  const setColorScheme = (theme: string) => {
     if (enableColorScheme && systemThemes.includes(theme)) {
       el.style.colorScheme = theme
     }
   }
 
-  function getSystemTheme() {
+  const getSystemTheme = () => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
 
